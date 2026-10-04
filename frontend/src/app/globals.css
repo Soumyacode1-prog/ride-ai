@@ -1,0 +1,69 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Keep secondary interface copy readable and consistent. */
+:where(
+  .text-gray-400,
+  .text-gray-500,
+  .text-gray-600,
+  .text-slate-400,
+  .text-slate-500,
+  .text-slate-700,
+  .text-slate-900,
+  .text-slate-950,
+  .text-white
+) {
+  color: #000 !important;
+}
+
+/* All non-button interface copy uses solid black for readability. */
+body :where(h1, h2, h3, h4, h5, h6, p, span, label, a, li, small, strong) {
+  color: #000 !important;
+}
+
+/* Consistent button treatment across every frontend page. */
+:where(button, input[type="button"], input[type="submit"], input[type="reset"]) {
+  background-color: #000 !important;
+  color: #fff !important;
+}
+
+:where(button, input[type="button"], input[type="submit"], input[type="reset"]):hover {
+  background-color: #1f1f1f !important;
+}
+
+:where(button, input[type="button"], input[type="submit"], input[type="reset"]):disabled {
+  background-color: #000 !important;
+  color: #fff !important;
+}
+
+:where(button, input[type="button"], input[type="submit"], input[type="reset"]).text-white {
+  color: #fff !important;
+}
+
+:where(button, input[type="button"], input[type="submit"], input[type="reset"]) :where(*) {
+  color: #fff !important;
+}
